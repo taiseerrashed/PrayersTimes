@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { Box, Container } from '@mui/material';
 import './App.css';
+import MainContent from './components/MainContent';
+import { useTheme } from './ThemeContext';
 
 function App() {
+  const { toggleTheme, theme } = useTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <button onClick={toggleTheme} className="theme-toggle-button">
+        {theme === "light" ? (
+          <i className="bi bi-moon-stars-fill"></i>
+        ) : (
+          <i className="bi bi-brightness-high"></i>
+        )}
+      </button>
+      <Box sx={{display: "flex", justifyContent: "center", alignItems: "center",minHeight: "100vh" }}>
+        <Container maxWidth="xl">
+          <MainContent />
+        </Container>
+      </Box>
     </div>
   );
 }

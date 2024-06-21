@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+html {
+  direction: rtl;
+}
+body {
+  font-family: "IBM Plex Sans Arabic", sans-serif !important;
+}
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+[data-theme='dark'] {
+  --background-color: #121212;
+  --text-color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 0.3s;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.theme-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: var(--text-color);
+  font-size: 25px;
+  transition: 0.3s;
+}
+.theme-toggle-button:focus {
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+}
+.MuiSvgIcon-root {
+  color: white !important;
 }
 
-.App-link {
-  color: #61dafb;
+[data-theme='light'] .MuiOutlinedInput-notchedOutline {
+  border-color: black !important; 
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[data-theme='light'] .MuiSvgIcon-root {
+  color: black !important; 
 }
